@@ -11,7 +11,7 @@ function App() {
   const generateSummary = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:3001/generate", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/generate`, {
         transcript,
         prompt,
       });
@@ -25,7 +25,7 @@ function App() {
   };
 
   const Share= async () => {
-    try { const res = await fetch("http://localhost:3001/share", {
+    try { const res = await fetch(`${import.meta.env.VITE_API_URL}/share`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
